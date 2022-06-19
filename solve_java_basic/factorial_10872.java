@@ -19,7 +19,6 @@ public class factorial_10872 {
         }
 
         System.out.println(result);
-        System.out.println(result);
 
     }
 }
