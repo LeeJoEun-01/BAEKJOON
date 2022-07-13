@@ -16,35 +16,21 @@ public class OXquiz_8958 {
         int[] result = new int[num];
 
         for( int i=0; i<num; i++) {
-            int sum = 0;
             System.out.println("OX배열 테스트 케이스를 입력해주세요! ");
             str = sc.next();
             String[] arr;
             arr = str.split("");
             // System.out.println(arr.length);
+            int score = 0;
+            int sum = 0;
             for( int j=0; j<arr.length; j++) {
                 char target = str.charAt(j);
-                char targetLeft = ' ';
-                char targetLeftLeft = ' ';
-                if( j > 0) {
-                    targetLeft = str.charAt(j-1);
-                }
-                if( j > 1) {
-                    targetLeftLeft = str.charAt(j-2);
-                }
                 if( target == 'O') {
-                    if (targetLeft == 'O') {
-                        if ( targetLeftLeft == 'O') {
-                            sum += 3;
-                        }
-                        else {
-                            sum += 2;
-                        }
-                    }
-                    else {
-                        sum += 1;
-                    }
+                    score += 1;
+                } else {
+                    score = 0;
                 }
+                sum += score;
                 System.out.println(sum);
             }
             result[i] = sum ;
