@@ -41,7 +41,7 @@ public class AverageOver_4344 {
             ansArray[i] = result;
         }
         for( float target:ansArray) {
-            System.out.println(Math.round(target*1000)/1000.0+ "%");
+            System.out.printf("%.3f%%\n",target);
         }
 
     }
