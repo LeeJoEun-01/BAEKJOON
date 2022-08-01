@@ -7,27 +7,54 @@ public class Parallelogram_1064 {
     Scanner sc = new Scanner(System.in);
 
     // 배열에 A(Xa, ya), B(Xb, Yb), C(Xc, Yc) 순서대로 입력 받기
-    int[] coordinate = new int[6];
+    int[] x_y = new int[6];
 
     for(int i=0; i<6; i++){
-      coordinate[i] = sc.nextInt();
+      x_y[i] = sc.nextInt();
     }
     sc.close();
 
-    // D 좌표
-    int x = 0;
-    int y = 0;
-
     // AB 길이 == CD 길이
     double ab = 0.0;
-    ab = lengthCalc(coordinate[0], coordinate[1], coordinate[2], coordinate[3]);
-    double cd = 0.0;
-
-    // AD 길이 == BC 길이
-    double ad = 0.0;
-
+    ab = lengthCalc(x_y[0], x_y[1], x_y[2], x_y[3]);
+    double ac = 0.0;
+    ac = lengthCalc(x_y[0], x_y[1], x_y[4], x_y[5]);
     double bc = 0.0;
-    bc = lengthCalc(coordinate[2], coordinate[3], coordinate[4], coordinate[5])
+    bc = lengthCalc(x_y[2], x_y[3], x_y[4], x_y[5]);
+
+    double max = 0.0;
+    double min = 0.0;
+
+    if(x_y[0]== x_y[2] && x_y[2] == x_y[4]){ // 세 점이 일직선 상에 있는 경우 1
+      System.out.println("1");
+      max = -1.0;
+    } else if(x_y[1]== x_y[3] && x_y[3] == x_y[5]){// 세 점이 일직선 상에 있는 경우 2
+      System.out.println("2");
+      max = -1.0;
+    } else if( (x_y[1] - x_y[3])!=0 && (x_y[3] - x_y[5])!=0 && (x_y[5] - x_y[1])!=0 && (x_y[0] - x_y[2])/(x_y[1] - x_y[3]) == (x_y[2] - x_y[4])/(x_y[3] - x_y[5]) && (x_y[2] - x_y[4])/(x_y[3] - x_y[5]) == (x_y[4] - x_y[0])/(x_y[5] - x_y[1])){ //ab와 ac의 기울기가 같은 경우
+      System.out.println("3");
+      max = -1.0;
+
+    } else{ // 위의 예외 상황이 아닌 경우
+      if(ab > ac && ab > bc){
+        if(ac > bc){
+          max = (ab+ac)*2;
+          min = (ac+bc)*2;
+        }
+      } else if(ac > ab && ac > bc){
+        if(ab > bc){
+          max = (ac+ab)*2;
+          min = (ab+bc)*2;
+        }
+      } else{
+        if(ab > ac){
+          max = (ab+bc)*2;
+          min = (ab+ac)*2;
+        }
+      }
+    }
+
+    System.out.println(max-min);
 
   }
 
@@ -50,38 +77,6 @@ public class Parallelogram_1064 {
     }
 
     return result;
-
-  }
-
-  // D의 좌표 구하는 함수
-  public static double[] dCoordinate(int x1, int y1, int x2, int y2, double target1, double target2){ // A와 C의 좌표와  target은 같아야 하는 변의 길이 (ab길이, bc길이)
-    int x = 0;
-    int y = 0;
-    double result1 = 0.0;
-    double result2 = 0.0;
-    double[] minmaxLength = new double[2];
-    minmaxLength[0] = 0.0000001;
-    minmaxLength[1] = 0.0000001;
-
-    for(x= -5000; x<=5000; x++){
-      for(y= -5000; y<=5000; y++){
-        result1 = lengthCalc(x1, y1, x, y); // AD 길이
-        result2 = lengthCalc(x2, y2, x, y); // CD 길이
-        if(target1 == result2 && target2 == result1){
-        // !! 굳이 좌표를 배열에 담을 필요가 없다! 답을 구하기 위해 필요한 값은 최소 둘래와 최대 둘래임으로 그것만 배열에 담자!
-
-          // if(minmaxLength[0] > target){
-          //   minmaxLength[0] = target;
-          // }
-          // if(minmaxLength[1] < target){
-          //   minmaxLength[1] = target;
-          // }
-
-        }
-      }
-    }
-
-    return minmaxLength;
 
   }
 
