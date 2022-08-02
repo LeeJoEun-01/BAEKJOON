@@ -31,28 +31,39 @@ public class Parallelogram_1064 {
     } else if(x_y[1]== x_y[3] && x_y[3] == x_y[5]){// 세 점이 일직선 상에 있는 경우 2
       System.out.println("2");
       max = -1.0;
-    } else if( (x_y[1] - x_y[3])!=0 && (x_y[3] - x_y[5])!=0 && (x_y[5] - x_y[1])!=0 && (x_y[0] - x_y[2])/(x_y[1] - x_y[3]) == (x_y[2] - x_y[4])/(x_y[3] - x_y[5]) && (x_y[2] - x_y[4])/(x_y[3] - x_y[5]) == (x_y[4] - x_y[0])/(x_y[5] - x_y[1])){ //ab와 ac의 기울기가 같은 경우
-      System.out.println("3");
-      max = -1.0;
-
-    } else{ // 위의 예외 상황이 아닌 경우
+    // } else if((x_y[5]-x_y[1])!=0 && (x_y[3]-x_y[1])!=0 && (x_y[2]-x_y[0])/(x_y[3]-x_y[1]) == (x_y[4]-x_y[0])/(x_y[5]-x_y[1])){ //ab와 ac의 기울기가 같아 한 직선에 세 점이 위치한 경우
+    //   System.out.println("3");
+    //   max = -1.0;
+    } else { // 위의 예외 상황이 아닌 경우
       if(ab > ac && ab > bc){
         if(ac > bc){
-          max = (ab+ac)*2;
-          min = (ac+bc)*2;
+          max = (ab+ac)*2.0;
+          min = (ac+bc)*2.0;
+        }
+        else{
+          max = (ab+bc)*2.0;
+          min = (ac+bc)*2.0;
         }
       } else if(ac > ab && ac > bc){
         if(ab > bc){
-          max = (ac+ab)*2;
-          min = (ab+bc)*2;
+          max = (ac+ab)*2.0;
+          min = (ab+bc)*2.0;
+        }else{
+          max = (ac+bc)*2.0;
+          min = (ab+bc)*2.0;
         }
       } else{
         if(ab > ac){
-          max = (ab+bc)*2;
-          min = (ab+ac)*2;
+          max = (ab+bc)*2.0;
+          min = (ab+ac)*2.0;
+        } else{
+          max = (bc+ac)*2.0;
+          min = (ab+ac)*2.0;
         }
       }
     }
+
+    // System.out.println(max+" "+min);
 
     System.out.println(max-min);
 
