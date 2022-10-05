@@ -33,3 +33,4 @@ func selfNumber(num: Int) -> Int{
     return total
 }
 
+//test
