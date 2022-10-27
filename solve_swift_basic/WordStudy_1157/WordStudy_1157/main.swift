@@ -34,15 +34,15 @@ for char in word {
 //print(countArr)
 let countArrSet: Set = Set(countArr)
 
-if countArr.count == countArrSet.count {
-    let maxCount = countArr.max()
-    let answerDic = wordDic.filter({ (val1: Character, val2: Int) -> Bool in return val2 == maxCount } )
+let maxCount = countArr.max()
+let answerDic = wordDic.filter({ (val1: Character, val2: Int) -> Bool in return val2 == maxCount } )
+
+if answerDic.count >= 2 {
+    print("?")
+} else {
     for (key, _) in answerDic {
         print("\(key.uppercased())")
     }
-} else {
-    let answer = "?"
-    print(answer)
 }
 
 
