@@ -10,13 +10,13 @@ import Foundation
 // 단어공부_1157
 
 let wordArr = Array(readLine()!.lowercased())//입력;
-//print(wordArr)
+print(wordArr)
 // print(type(of:wordArr)) Array<Character>
 
 
 // 중복요소를 제거하는 set 함수
 let word: Set = Set(wordArr)
-//print(word)
+print(word)
 // print(type(of:word))  Set<Character>
 
 var wordDic: [Character:Int] = [:] //딕셔너리 선언
@@ -30,7 +30,7 @@ for char in word {
     countArr.append(count)
 }
 
-//print(wordDic)
+print(wordDic)
 //print(countArr)
 let countArrSet: Set = Set(countArr)
 

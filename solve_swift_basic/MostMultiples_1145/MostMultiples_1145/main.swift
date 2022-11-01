@@ -9,11 +9,12 @@ import Foundation
 
 let nums = readLine()!.split(separator: " ").map { Int(String($0))! }
 
-// 시간초과
+// 시간초과 => 변수 선언 위치 유의해서 코드짜자!
 var count: Int = 0
 
 var i: Int = 1
 while count < 3 {
+    count = 0
     for j in nums {
         //print(i%j)
         if i%j == 0 {
@@ -21,10 +22,9 @@ while count < 3 {
             //print("count: ",count)
         }
     }
-    count = 0
     i = i + 1
 }
-print(i)
+print(i-1)
 
 
 
