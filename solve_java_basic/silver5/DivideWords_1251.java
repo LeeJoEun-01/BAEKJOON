@@ -24,8 +24,18 @@ public class DivideWords_1251 {
             //System.out.println(charArr[i]);
         }
 
+        //Char charAt(int index)
+
         int one = charArr[0];
         int two = charArr[1];
+
+        if (word.charAt(one) == word.charAt(one+1)){
+            one = one + 1;
+        }
+        if (word.charAt(two) == word.charAt(two+1)){
+            two = two + 1;
+        }
+        //System.out.println(one + "   "+ two);
 
         //단어 나누기 substring: https://byul91oh.tistory.com/309 
 
