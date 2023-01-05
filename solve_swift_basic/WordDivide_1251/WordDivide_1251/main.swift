@@ -36,22 +36,41 @@ import Foundation
 
 
 // D-Day_1308
-let currentDay = readLine()!
-let dDay = readLine()!
+//let currentDay = readLine()!
+//let dDay = readLine()!
+//
+//let dateFormatter = DateFormatter()
+//    dateFormatter.dateFormat = "yyyy-MM-dd"
+//let startDate = dateFormatter.date(from:currentDay)
+//let endDate = dateFormatter.date(from:dDay)
+//
+////print(startDate ?? 0)
+////print(endDate ?? 0)
+//
+//let calendar = Calendar.current
+//let dateGap: Int = calendar.dateComponents([.day], from: startDate!, to: endDate!).day ?? -1
+//
+//if (dateGap+1)/365 >= 1000 {
+//    print("gg")
+//} else {
+//    print("D-\(dateGap)")
+//}
 
-let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd"
-let startDate = dateFormatter.date(from:currentDay)
-let endDate = dateFormatter.date(from:dDay)
+//소수_1312
+let input = readLine()!.split(separator: " ").map{Int($0)!}
 
-//print(startDate ?? 0)
-//print(endDate ?? 0)
+let remain = Double(input[0])/Double(input[1])
 
-let calendar = Calendar.current
-let dateGap: Int = calendar.dateComponents([.day], from: startDate!, to: endDate!).day ?? -1
-
-if (dateGap+1)/365 >= 1000 {
-    print("gg")
-} else {
-    print("D-\(dateGap)")
+//var result = Int(remain*pow(10, Double(input[2])))
+var num = 1.0
+for _ in 0..<input[2] {
+    num *= 10
 }
+
+print(Int(remain*num)%10)
+
+
+
+
+
+
