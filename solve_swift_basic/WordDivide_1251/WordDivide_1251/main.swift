@@ -69,22 +69,55 @@ import Foundation
 //
 //print(Int(remain*num)%10)
 
-// Lv. 1 평균 구하기
-func solution(_ arr:[Int]) -> Double {
-    let num = arr.count
-    var sum = 0
-    var result = 0.0
+//그룹 단어 체커_1316
+let n = Int(readLine()!)!
+var answer = 0
+
+for _ in 0..<n {
+    var checker: [Character] = []
+    let word = readLine()!
     
-    for i in 0..<num {
-        sum += arr[i]
+    for char in word {
+        if !checker.contains(char) {
+            checker.append(char)
+        } else if checker.last != char {
+            checker.removeAll()
+            break
+        }
     }
     
-    result = Double(sum)/Double(num)
-    
-    return result
+    if checker.count != 0 {
+        answer += 1
+    }
 }
 
-print(solution([1,2,3,4]))
+print(answer)
+
+
+
+
+
+
+
+
+
+// === 프로그래머스 ===
+// Lv. 1 평균 구하기
+//func solution(_ arr:[Int]) -> Double {
+//    let num = arr.count
+//    var sum = 0
+//    var result = 0.0
+//
+//    for i in 0..<num {
+//        sum += arr[i]
+//    }
+//
+//    result = Double(sum)/Double(num)
+//
+//    return result
+//}
+//
+//print(solution([1,2,3,4]))
 
 
 
