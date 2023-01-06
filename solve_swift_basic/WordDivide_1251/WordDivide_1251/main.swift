@@ -57,20 +57,34 @@ import Foundation
 //}
 
 //소수_1312
-let input = readLine()!.split(separator: " ").map{Int($0)!}
+//let input = readLine()!.split(separator: " ").map{Double($0)!}
+//
+//let remain = input[0]/input[1]
+//
+//// var result = Int(remain*pow(10, input[2]))
+//var num = 1.0
+//for _ in 0..<Int(input[2]) {
+//    num *= 10
+//}
+//
+//print(Int(remain*num)%10)
 
-let remain = Double(input[0])/Double(input[1])
-
-//var result = Int(remain*pow(10, Double(input[2])))
-var num = 1.0
-for _ in 0..<input[2] {
-    num *= 10
+// Lv. 1 평균 구하기
+func solution(_ arr:[Int]) -> Double {
+    let num = arr.count
+    var sum = 0
+    var result = 0.0
+    
+    for i in 0..<num {
+        sum += arr[i]
+    }
+    
+    result = Double(sum)/Double(num)
+    
+    return result
 }
 
-print(Int(remain*num)%10)
-
-
-
+print(solution([1,2,3,4]))
 
 
 
