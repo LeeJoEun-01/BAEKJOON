@@ -31,3 +31,18 @@ print(answerDic) // 조건에 맞는 딕셔너리만 출력  ["z": 1]
 - 배열 뒤집기: `reverse()`
 - 오름차순으로 정렬: `sort()` && 새로운 배열을 오름차순으로 정렬하여 return: `sorted()`
 - 소문자, 대문자: `lowercased(), uppercased()`
+
+>## 배열 길이 (count?? capacity??) 
+```swift
+var arr = [1,2,3]
+
+arr.count // 3
+arr.capacity // 3
+
+arr.removeLast()  // 마지막 요소 제거
+arr.count // 2
+arr.capacity // 3 -> 요소 제고 후에도 capacity는 동일
+```
+`capacity`는 새로운 스토리지를 할당 없이, Array에 얼만큼의 element를 담을 수 있는지를 나타내는 것이다.  
+따라서, 모든 Array는 콘텐츠를 저장하기 위해 특정 양의 메모리를 예약하기 때문에, 특정 element를 제거한다고해도 이 공간의 크기는 변하지 않는다.
+<!-- https://sujinnaljin.medium.com/swift-array-%EC%9D%98-capacity-9c3a99d2c31f -->
