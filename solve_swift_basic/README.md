@@ -31,6 +31,18 @@ print(answerDic) // 조건에 맞는 딕셔너리만 출력  ["z": 1]
 - 배열 뒤집기: `reverse()`
 - 오름차순으로 정렬: `sort()` && 새로운 배열을 오름차순으로 정렬하여 return: `sorted()`
 - 소문자, 대문자: `lowercased(), uppercased()`
+  
+- 처음과 끝 인덱스: `startIndex, endIndex`
+- 처음과 끝 인덱스의 값; `first, last`
+```swift
+var arr = [60,70,80,90,100]
+
+arr.startIndex // 0
+arr.endIndex // 5
+
+arr.first // == arr[arr.startIndex] == 60
+arr.last  // == arr[(arr.endIndex)-1] == 100
+```
 
 >## 배열 길이 (count?? capacity??) 
 ```swift
@@ -46,3 +58,14 @@ arr.capacity // 3 -> 요소 제고 후에도 capacity는 동일
 `capacity`는 새로운 스토리지를 할당 없이, Array에 얼만큼의 element를 담을 수 있는지를 나타내는 것이다.  
 따라서, 모든 Array는 콘텐츠를 저장하기 위해 특정 양의 메모리를 예약하기 때문에, 특정 element를 제거한다고해도 이 공간의 크기는 변하지 않는다.
 <!-- https://sujinnaljin.medium.com/swift-array-%EC%9D%98-capacity-9c3a99d2c31f -->
+
+>## contains()
+- contains: 문자열이나 배열에 특정 문자가 속해있는지 문자열 포함여부를 Boolean값으로 리턴해주는 함수
+- 단어(array)에서 char가 포함되어 있는지 확인하기 
+```swift
+for char in word {
+  if checker.contains(char) {
+     // checker 안에 char가 있다면
+  }
+}
+```
