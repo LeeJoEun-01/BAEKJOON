@@ -36,6 +36,7 @@ import Foundation
 
 
 // D-Day_1308
+
 //let currentDay = readLine()!
 //let dDay = readLine()!
 //
@@ -69,29 +70,90 @@ import Foundation
 //
 //print(Int(remain*num)%10)
 
-//그룹 단어 체커_1316
-let n = Int(readLine()!)!
-var answer = 0
 
+//그룹 단어 체커_1316
+
+//let n = Int(readLine()!)!
+//var answer = 0
+//
+//for _ in 0..<n {
+//    var checker: [Character] = []
+//    let word = readLine()!
+//
+//    for char in word {
+//        if !checker.contains(char) {
+//            checker.append(char)
+//        } else if checker.last != char {
+//            checker.removeAll()
+//            break
+//        }
+//    }
+//
+//    if checker.count != 0 {
+//        answer += 1
+//    }
+//}
+//print(answer)
+
+
+// 나이트 투어_1331
+// 조건 처음과 마지막의 위치 차이의 절대값이 [1,2] , [2,1] 이어야 만족
+// 현 위치와 전 위치 차이의 절대값이 [1,2] , [2,1] 이어야 만족
+// 중복된 경로가 있는지 확인
+
+var arr : Array<String> = []
+var arrInt : Array<Int> = []
+let n = 6
 for _ in 0..<n {
-    var checker: [Character] = []
-    let word = readLine()!
-    
-    for char in word {
-        if !checker.contains(char) {
-            checker.append(char)
-        } else if checker.last != char {
-            checker.removeAll()
-            break
-        }
+    let input = readLine()!
+    arr.append(input)
+    for index in input.utf16 {
+        arrInt.append(Int(index))
     }
     
-    if checker.count != 0 {
-        answer += 1
-    }
 }
 
-print(answer)
+var flag = false
+
+// 조건 3
+if Set(arr).count != n {
+    flag = false
+    print("1")
+} else {
+    //조건 1
+    if abs(arrInt[0]-arrInt[n*2-2]) == 1 && abs(arrInt[1]-arrInt[n*2-1]) == 2
+        || abs(arrInt[0]-arrInt[n*2-2]) == 2 && abs(arrInt[1]-arrInt[n*2-1]) == 1 {
+        // 조건 2
+        for i in 0..<n*2-4 {
+            let currentX = arrInt[i]
+            let currentY = arrInt[i+1]
+            let nextX = arrInt[i+2]
+            let nextY = arrInt[i+3]
+            if abs(currentX-nextX) == 1 && abs(currentY-nextY) == 2
+                || abs(currentX-nextX) == 2 && abs(currentY-nextY) == 1 {
+                flag = true
+            } else {
+                flag = false
+                print(i)
+                print("2")
+                
+                break
+            }
+        }
+    } else {
+        flag = false
+        print("3")
+    }
+    
+    
+
+}
+
+if flag == true {
+    print("Valid")
+} else {
+    print("Invalid")
+}
 
 
 
