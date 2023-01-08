@@ -1,4 +1,11 @@
 # Swift로 백준 단계별 문제풀기 
+
+>## 자주 까먹는 것들...
+```swift
+// 배열 선언
+let arr : Array<Int> = []
+
+```
   
 >## 딕셔너리 (Dictionaty)
 ```swift
@@ -31,6 +38,7 @@ print(answerDic) // 조건에 맞는 딕셔너리만 출력  ["z": 1]
 - 배열 뒤집기: `reverse()`
 - 오름차순으로 정렬: `sort()` && 새로운 배열을 오름차순으로 정렬하여 return: `sorted()`
 - 소문자, 대문자: `lowercased(), uppercased()`
+- 절대값: `abs()`
   
 - 처음과 끝 인덱스: `startIndex, endIndex`
 - 처음과 끝 인덱스의 값; `first, last`
@@ -67,5 +75,29 @@ for char in word {
   if checker.contains(char) {
      // checker 안에 char가 있다면
   }
+}
+```
+
+>## 아스키코드 값 뽑기
+#### UnicodeScalar
+```swift
+// 아스키코드를 Int형으로 바꾸는 방법
+var char = "A"  //무조건 Character이어야 한다.
+UnicodeScalar(char)?.value //65 -> UInt32 (Int를 사용하고 싶으면 Int로 캐스팅 해주어야 함)
+
+// Int를 아스키코드로 
+let num = 97
+
+//UnicodeScalar는 옵셔널을 반환하기 때문에 if let으로 바인딩해주었다.
+if let num = UnicodeScalar(num){
+    print(num)//a
+}
+```
+#### str.utf  (편하게 아스키코드 뽑기)
+```swift
+let str = "abcDEF"
+
+for index in str.utf16 {
+    print(index)// 97 98 99 68 69
 }
 ```
