@@ -103,7 +103,7 @@ import Foundation
 
 var arr : Array<String> = []
 var arrInt : Array<Int> = []
-let n = 6
+let n = 36
 for _ in 0..<n {
     let input = readLine()!
     arr.append(input)
@@ -118,13 +118,14 @@ var flag = false
 // 조건 3
 if Set(arr).count != n {
     flag = false
-    print("1")
+    //print("1")
 } else {
     //조건 1
     if abs(arrInt[0]-arrInt[n*2-2]) == 1 && abs(arrInt[1]-arrInt[n*2-1]) == 2
         || abs(arrInt[0]-arrInt[n*2-2]) == 2 && abs(arrInt[1]-arrInt[n*2-1]) == 1 {
         // 조건 2
-        for i in 0..<n*2-4 {
+        var i = 0
+        for _ in 0..<n-1 {
             let currentX = arrInt[i]
             let currentY = arrInt[i+1]
             let nextX = arrInt[i+2]
@@ -134,19 +135,15 @@ if Set(arr).count != n {
                 flag = true
             } else {
                 flag = false
-                print(i)
-                print("2")
-                
+                //print("2")
                 break
             }
+            i += 2
         }
     } else {
         flag = false
-        print("3")
+        //print("3")
     }
-    
-    
-
 }
 
 if flag == true {
