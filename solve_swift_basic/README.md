@@ -16,14 +16,14 @@ var wordDic: [Character:Int] = [:]
 var countArr: Array<Int> = []
 ```
 - String 타입의 데이터(문자열)에서 특정 문자를 char타입으로 변환할 때 사용하는 함수이다. i 자리에는 int형 변수를 넣어서 원하는 위치의 문자를 가져올 수 있다.
-
+  
 >## Set()
 - 중복요소를 제거하는 set 함수
 ```swift
 let word: Set = Set(wordArr)
 print(type(of:word))  // Set<Character>
 ```
-
+  
 >## filter()
 - 데이터를 추출하고자 할 때 사용
 ```swift
@@ -32,7 +32,7 @@ let maxCount = countArr.max()
 let answerDic = wordDic.filter({ (val1: Character, val2: Int) -> Bool in return val2 == maxCount } )
 print(answerDic) // 조건에 맞는 딕셔너리만 출력  ["z": 1]
 ```
-
+  
 >## 유용하고 간단한 함수들
 - 최대,최소: `max(), min()`
 - 배열 뒤집기: `reverse()`
@@ -51,7 +51,17 @@ arr.endIndex // 5
 arr.first // == arr[arr.startIndex] == 60
 arr.last  // == arr[(arr.endIndex)-1] == 100
 ```
+  
+- 특정 문자열 제거/변경 하기: `replacingOccurrences(of: "변경할 대상", with: "변경될 문자")`
+```swift
+let str = "XXXX..XX....XXXXXX"
 
+result = input.replacingOccurrences(of: "XXXX", with: "AAAA")
+result = result.replacingOccurrences(of: "XX", with: "BB")
+
+print(result) // AAAA..BB....AAAABB
+```
+  
 >## 배열 길이 (count?? capacity??) 
 ```swift
 var arr = [1,2,3]
@@ -77,7 +87,7 @@ for char in word {
   }
 }
 ```
-
+  
 >## 아스키코드 값 뽑기
 #### UnicodeScalar
 ```swift
