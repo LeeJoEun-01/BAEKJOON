@@ -97,63 +97,74 @@ import Foundation
 
 
 // 나이트 투어_1331
-// 조건 처음과 마지막의 위치 차이의 절대값이 [1,2] , [2,1] 이어야 만족
-// 현 위치와 전 위치 차이의 절대값이 [1,2] , [2,1] 이어야 만족
-// 중복된 경로가 있는지 확인
+// 1. 조건 처음과 마지막의 위치 차이의 절대값이 [1,2] , [2,1] 이어야 만족
+// 2. 현 위치와 전 위치 차이의 절대값이 [1,2] , [2,1] 이어야 만족
+// 3. 중복된 경로가 있는지 확인
 
-var arr : Array<String> = []
-var arrInt : Array<Int> = []
-let n = 36
-for _ in 0..<n {
-    let input = readLine()!
-    arr.append(input)
-    for index in input.utf16 {
-        arrInt.append(Int(index))
-    }
-    
-}
+//var arr : Array<String> = []
+//var arrInt : Array<Int> = []
+//let n = 36
+//for _ in 0..<n {
+//    let input = readLine()!
+//    arr.append(input)
+//    for index in input.utf16 {
+//        arrInt.append(Int(index))
+//    }
+//
+//}
+//
+//var flag = false
+//
+//// 조건 3
+//if Set(arr).count != n {
+//    flag = false
+//    //print("1")
+//} else {
+//    //조건 1
+//    if abs(arrInt[0]-arrInt[n*2-2]) == 1 && abs(arrInt[1]-arrInt[n*2-1]) == 2
+//        || abs(arrInt[0]-arrInt[n*2-2]) == 2 && abs(arrInt[1]-arrInt[n*2-1]) == 1 {
+//        // 조건 2
+//        var i = 0
+//        for _ in 0..<n-1 {
+//            let currentX = arrInt[i]
+//            let currentY = arrInt[i+1]
+//            let nextX = arrInt[i+2]
+//            let nextY = arrInt[i+3]
+//            if abs(currentX-nextX) == 1 && abs(currentY-nextY) == 2
+//                || abs(currentX-nextX) == 2 && abs(currentY-nextY) == 1 {
+//                flag = true
+//            } else {
+//                flag = false
+//                //print("2")
+//                break
+//            }
+//            i += 2
+//        }
+//    } else {
+//        flag = false
+//        //print("3")
+//    }
+//}
+//
+//if flag == true {
+//    print("Valid")
+//} else {
+//    print("Invalid")
+//}
 
-var flag = false
 
-// 조건 3
-if Set(arr).count != n {
-    flag = false
-    //print("1")
+// 1343_폴리오미노
+let input = readLine()!
+
+var result = ""
+result = input.replacingOccurrences(of: "XXXX", with: "AAAA")
+result = result.replacingOccurrences(of: "XX", with: "BB")
+
+if result.contains("X") {
+    print(-1)
 } else {
-    //조건 1
-    if abs(arrInt[0]-arrInt[n*2-2]) == 1 && abs(arrInt[1]-arrInt[n*2-1]) == 2
-        || abs(arrInt[0]-arrInt[n*2-2]) == 2 && abs(arrInt[1]-arrInt[n*2-1]) == 1 {
-        // 조건 2
-        var i = 0
-        for _ in 0..<n-1 {
-            let currentX = arrInt[i]
-            let currentY = arrInt[i+1]
-            let nextX = arrInt[i+2]
-            let nextY = arrInt[i+3]
-            if abs(currentX-nextX) == 1 && abs(currentY-nextY) == 2
-                || abs(currentX-nextX) == 2 && abs(currentY-nextY) == 1 {
-                flag = true
-            } else {
-                flag = false
-                //print("2")
-                break
-            }
-            i += 2
-        }
-    } else {
-        flag = false
-        //print("3")
-    }
+    print(result)
 }
-
-if flag == true {
-    print("Valid")
-} else {
-    print("Invalid")
-}
-
-
-
 
 
 
