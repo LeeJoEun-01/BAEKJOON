@@ -111,3 +111,15 @@ for index in str.utf16 {
     print(index)// 97 98 99 68 69
 }
 ```
+
+>## map() 함수 예시
+#### 배열 한 줄에 뽑기
+```swift
+let input = Array(readLine()!)  // [ 4, 2, 3, 1]
+// 입력 배열로 받기
+var result = (input.map{ Int(String($0))! }).sorted().reversed()  // [ 4, 3, 2, 1]
+// string 배열을 Int로 받고 + 오름차순 + 뒤집기
+print(result.map { String($0) }.joined(separator: ""))  // 4321
+// 배열을 string으로 받아서 seperator를 사이에 두고 배열 합치기
+
+```
