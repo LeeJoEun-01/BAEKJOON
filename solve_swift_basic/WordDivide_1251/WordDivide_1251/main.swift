@@ -154,19 +154,24 @@ import Foundation
 
 
 // 1343_폴리오미노
-let input = readLine()!
+//let input = readLine()!
+//
+//var result = ""
+//result = input.replacingOccurrences(of: "XXXX", with: "AAAA")
+//result = result.replacingOccurrences(of: "XX", with: "BB")
+//
+//if result.contains("X") {
+//    print(-1)
+//} else {
+//    print(result)
+//}
 
-var result = ""
-result = input.replacingOccurrences(of: "XXXX", with: "AAAA")
-result = result.replacingOccurrences(of: "XX", with: "BB")
 
-if result.contains("X") {
-    print(-1)
-} else {
-    print(result)
-}
+// 1427_소트인사이드
 
-
+let input = Array(readLine()!)
+var result = (input.map{ Int(String($0))! }).sorted().reversed()
+print(result.map { String($0) }.joined(separator: ""))
 
 
 
