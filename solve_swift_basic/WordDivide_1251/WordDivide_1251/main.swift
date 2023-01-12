@@ -169,10 +169,27 @@ import Foundation
 
 // 1427_소트인사이드
 
-let input = Array(readLine()!)
-var result = (input.map{ Int(String($0))! }).sorted().reversed()
-print(result.map { String($0) }.joined(separator: ""))
+//let input = Array(readLine()!)
+//var result = (input.map{ Int(String($0))! }).sorted().reversed()
+//print(result.map { String($0) }.joined(separator: ""))
 
+
+// 1436_영화감독 숌
+var result : Array<Int> = []
+
+for i in 666..<10666 {
+    let str = String(i)
+    print(str)
+    if #available(macOS 13.0, *) {
+        if str.contains("666") {
+            result.append(i)
+        }
+    } else {
+        // Fallback on earlier versions
+    }
+}
+
+print(result)
 
 
 
