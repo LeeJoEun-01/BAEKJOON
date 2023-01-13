@@ -175,21 +175,53 @@ import Foundation
 
 
 // 1436_영화감독 숌
-var result : Array<Int> = []
+// 브루트포스(완전탐색) : 하나하나씩 찾으려고 할땐 횟수를 구할 땐 While True를 쓴다
 
-for i in 666..<10666 {
-    let str = String(i)
-    print(str)
-    if #available(macOS 13.0, *) {
-        if str.contains("666") {
-            result.append(i)
+let target = Int(readLine()!)
+var num : Int = 666
+var count = 0
+
+while true {
+
+    // let str = String(num)
+
+//    if  num % 1000 == 666  {
+//        // num안에 666이라는 숫자가 포함되어 있다면
+//        print(num)
+//        count += 1
+//    }
+    
+    while num >= 666 {
+        if num % 1000 == 666 {
+            count += 1
+            break
         }
-    } else {
-        // Fallback on earlier versions
+        num /= 10
     }
+    
+    if count == target {
+        print(num)
+        break
+    }
+    num += 1
 }
 
-print(result)
+//for i in 666...10000000 {
+//    var n = i
+//
+//    while n >= 666 {
+//        if n % 1000 == 666 {
+//            count += 1
+//            break
+//        }
+//        n /= 10
+//    }
+//
+//    if count == target {
+//        print(i)
+//        break
+//    }
+//}
 
 
 
