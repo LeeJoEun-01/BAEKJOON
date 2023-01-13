@@ -122,4 +122,9 @@ var result = (input.map{ Int(String($0))! }).sorted().reversed()  // [ 4, 3, 2, 
 print(result.map { String($0) }.joined(separator: ""))  // 4321
 // 배열을 string으로 받아서 seperator를 사이에 두고 배열 합치기
 
+// 숫자를 배열로 만들기 ex) 123 -> [1,2,3]
+let arr = String(num).map{Int(String($0))!}
+// 배열에서 6이 몇 개 있는지 세보기
+var result = arr.filter({ ($0) == 6 }).count
+
 ```
