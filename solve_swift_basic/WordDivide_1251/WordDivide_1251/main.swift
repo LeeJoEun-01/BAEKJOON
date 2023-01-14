@@ -177,31 +177,54 @@ import Foundation
 // 1436_영화감독 숌
 // 브루트포스(완전탐색) : 하나하나씩 찾으려고 할땐 횟수를 구할 땐 While True를 쓴다
 
-let target = Int(readLine()!)
-var num : Int = 666
-var count = 0
+//let target = Int(readLine()!)
+//var num : Int = 666
+//var count = 0
+//
+//while true {
+//
+//// 문자열로 바꿔서 contains 쓰니까 시간초과 뜸...;;
+//
+//    var n = num
+//    while n >= 666 {
+//        if n % 1000 == 666 {
+//            count += 1
+//            break
+//        }
+//        n /= 10
+//    }
+//
+//    if count == target {
+//        print(num)
+//        break
+//    }
+//    num += 1
+//}
 
-while true {
+// 1439. 뒤집기
+let input = Array(readLine()!)
 
-// 문자열로 바꿔서 contains 쓰니까 시간초과 뜸...;;
+var zero = 0
+var one = 0
+
+for i in 0...input.count-2 {
+    let current = input[i]
+    let next = input[i+1]
     
-    var n = num
-    while n >= 666 {
-        if n % 1000 == 666 {
-            count += 1
-            break
+    if current != next {
+        if current == "0" {
+            zero += 1
+        } else {
+            one += 1
         }
-        n /= 10
     }
-    
-    if count == target {
-        print(num)
-        break
-    }
-    num += 1
 }
 
-
+if zero > one {
+    print(zero)
+} else {
+    print(one)
+}
 
 // === 프로그래머스 ===
 // Lv. 1 평균 구하기
