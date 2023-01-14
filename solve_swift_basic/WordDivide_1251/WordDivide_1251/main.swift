@@ -183,20 +183,15 @@ var count = 0
 
 while true {
 
-    // let str = String(num)
-
-//    if  num % 1000 == 666  {
-//        // num안에 666이라는 숫자가 포함되어 있다면
-//        print(num)
-//        count += 1
-//    }
+// 문자열로 바꿔서 contains 쓰니까 시간초과 뜸...;;
     
-    while num >= 666 {
-        if num % 1000 == 666 {
+    var n = num
+    while n >= 666 {
+        if n % 1000 == 666 {
             count += 1
             break
         }
-        num /= 10
+        n /= 10
     }
     
     if count == target {
@@ -205,23 +200,6 @@ while true {
     }
     num += 1
 }
-
-//for i in 666...10000000 {
-//    var n = i
-//
-//    while n >= 666 {
-//        if n % 1000 == 666 {
-//            count += 1
-//            break
-//        }
-//        n /= 10
-//    }
-//
-//    if count == target {
-//        print(i)
-//        break
-//    }
-//}
 
 
 
