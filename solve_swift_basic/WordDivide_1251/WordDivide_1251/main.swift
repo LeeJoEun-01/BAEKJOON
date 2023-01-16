@@ -202,29 +202,66 @@ import Foundation
 //}
 
 // 1439. 뒤집기
-let input = Array(readLine()!)
+//let input = Array(readLine()!)
+//
+//var zero = 0
+//var one = 0
+//
+//for i in 0...input.count-2 {
+//    let current = input[i]
+//    let next = input[i+1]
+//
+//    if current != next {
+//        if current == "0" {
+//            zero += 1
+//        } else {
+//            one += 1
+//        }
+//    }
+//}
+//
+//if zero > one {
+//    print(zero)
+//} else {
+//    print(one)
+//}
 
-var zero = 0
-var one = 0
+// 1402. 아무래도이문제는A번난이도인것같다
+//let testCase = readLine()!
+//
+//for _ in 1...Int(testCase)! {
+//    _ = readLine()!
+//}
+//
+//for _ in 1...Int(testCase)! {
+//    print("yes")
+//}
 
-for i in 0...input.count-2 {
-    let current = input[i]
-    let next = input[i+1]
-    
-    if current != next {
-        if current == "0" {
-            zero += 1
-        } else {
-            one += 1
-        }
+
+// 1417.국회의원 선거
+let numN = Int(readLine()!)!
+var arr : Array<Int> = []
+
+for _ in 0..<numN {
+    arr.append(Int(readLine()!)!)
+}
+var target = arr[0]
+arr.removeFirst()
+arr = arr.sorted().reversed()
+//print(arr)
+
+var count = 0
+if arr.count != 0 {
+    while target <= arr[0] {
+        target += 1
+        arr[0] -= 1
+        count += 1
+        arr = arr.sorted().reversed()
+        //print("target: \(target)")
     }
 }
 
-if zero > one {
-    print(zero)
-} else {
-    print(one)
-}
+print(count)
 
 // === 프로그래머스 ===
 // Lv. 1 평균 구하기
