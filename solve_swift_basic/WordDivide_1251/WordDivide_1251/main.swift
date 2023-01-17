@@ -239,29 +239,61 @@ import Foundation
 
 
 // 1417.국회의원 선거
-let numN = Int(readLine()!)!
-var arr : Array<Int> = []
+//let numN = Int(readLine()!)!
+//var arr : Array<Int> = []
+//
+//for _ in 0..<numN {
+//    arr.append(Int(readLine()!)!)
+//}
+//var target = arr[0]
+//arr.removeFirst()
+//arr = arr.sorted().reversed()
+////print(arr)
+//
+//var count = 0
+//if arr.count != 0 {
+//    while target <= arr[0] {
+//        target += 1
+//        arr[0] -= 1
+//        count += 1
+//        arr = arr.sorted().reversed()
+//        //print("target: \(target)")
+//    }
+//}
+//
+//print(count)
 
-for _ in 0..<numN {
-    arr.append(Int(readLine()!)!)
-}
-var target = arr[0]
-arr.removeFirst()
-arr = arr.sorted().reversed()
+// 1475. 방 번호
+var input = readLine()!
+var numDic : [Int:Int] = [:]
+
+input = input.replacingOccurrences(of: "6", with: "9")
+let arr = input.map{Int(String($0))!}
+var maxKey = 0
+var maxValue = 0
+
 //print(arr)
 
-var count = 0
-if arr.count != 0 {
-    while target <= arr[0] {
-        target += 1
-        arr[0] -= 1
-        count += 1
-        arr = arr.sorted().reversed()
-        //print("target: \(target)")
+for i in 0...9 {
+    numDic[i] = arr.filter({ ($0) == i }).count
+    if maxValue < numDic[i]! {
+        maxValue = numDic[i]!
+        if i == 9 {
+            maxValue = (numDic[i]!+1)/2
+        }
+        maxKey = i
     }
 }
 
-print(count)
+//print(maxKey)
+print(maxValue)
+
+
+//print(numDic.max(by: {$0.key < $1.key})!.key)
+//print(numDic.max(by: {$0.value < $1.value})!.value)
+
+
+
 
 // === 프로그래머스 ===
 // Lv. 1 평균 구하기
