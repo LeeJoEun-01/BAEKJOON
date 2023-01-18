@@ -264,33 +264,66 @@ import Foundation
 //print(count)
 
 // 1475. 방 번호
-var input = readLine()!
-var numDic : [Int:Int] = [:]
-
-input = input.replacingOccurrences(of: "6", with: "9")
-let arr = input.map{Int(String($0))!}
-var maxKey = 0
-var maxValue = 0
-
-//print(arr)
-
-for i in 0...9 {
-    numDic[i] = arr.filter({ ($0) == i }).count
-    if maxValue < numDic[i]! {
-        maxValue = numDic[i]!
-        if i == 9 {
-            maxValue = (numDic[i]!+1)/2
-        }
-        maxKey = i
-    }
-}
-
+//var input = readLine()!
+//var numDic : [Int:Int] = [:]
+//
+//input = input.replacingOccurrences(of: "6", with: "9")
+//let arr = input.map{Int(String($0))!}
+//var maxKey = 0
+//var maxValue = 0
+//
+////print(arr)
+//
+//for i in 0...9 {
+//    numDic[i] = arr.filter({ ($0) == i }).count
+//    if maxValue < numDic[i]! {
+//        maxValue = numDic[i]!
+//        if i == 9 {
+//            maxValue = (numDic[i]!+1)/2
+//        }
+//        maxKey = i
+//    }
+//}
+//
 //print(maxKey)
-print(maxValue)
+//print(maxValue)
 
 
 //print(numDic.max(by: {$0.key < $1.key})!.key)
 //print(numDic.max(by: {$0.value < $1.value})!.value)
+
+// 1476. 날짜계산
+
+let input = readLine()!.split(separator: " ").map { Int(String($0))! }
+
+var numE = 1
+var numS = 1
+var numM = 1
+var count = 1
+
+while true {
+    if numE > 15 {
+        numE = 1
+    }
+    if numS > 28 {
+        numS = 1
+    }
+    if numM > 19 {
+        numM = 1
+    }
+    if numE == input[0] && numS == input[1] && numM == input[2] {
+            break
+    }
+    
+    count += 1
+    numE += 1
+    numS += 1
+    numM += 1
+    
+    //print("numE:\(numE), numS:\(numS), numM:\(numS)")
+}
+
+print(count)
 
 
 
