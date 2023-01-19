@@ -294,36 +294,77 @@ import Foundation
 
 // 1476. 날짜계산
 
-let input = readLine()!.split(separator: " ").map { Int(String($0))! }
+//let input = readLine()!.split(separator: " ").map { Int(String($0))! }
+//
+//var numE = 1
+//var numS = 1
+//var numM = 1
+//var count = 1
+//
+//while true {
+//    if numE > 15 {
+//        numE = 1
+//    }
+//    if numS > 28 {
+//        numS = 1
+//    }
+//    if numM > 19 {
+//        numM = 1
+//    }
+//    if numE == input[0] && numS == input[1] && numM == input[2] {
+//            break
+//    }
+//
+//    count += 1
+//    numE += 1
+//    numS += 1
+//    numM += 1
+//
+//    //print("numE:\(numE), numS:\(numS), numM:\(numS)")
+//}
+//
+//print(count)
 
-var numE = 1
-var numS = 1
-var numM = 1
-var count = 1
+// 1652. 누울 자리를 찾아서
 
-while true {
-    if numE > 15 {
-        numE = 1
+let num = Int(readLine()!)!
+var arr2D : [[Character]] = Array(repeating: Array(repeating: ".",count:num ), count: num)
+
+for i in 0...num-1 {
+    let arr = Array(readLine()!)
+    for j in 0...num-1 {
+        arr2D[i][j] = arr[j]
     }
-    if numS > 28 {
-        numS = 1
-    }
-    if numM > 19 {
-        numM = 1
-    }
-    if numE == input[0] && numS == input[1] && numM == input[2] {
-            break
-    }
-    
-    count += 1
-    numE += 1
-    numS += 1
-    numM += 1
-    
-    //print("numE:\(numE), numS:\(numS), numM:\(numS)")
 }
 
-print(count)
+//print(arr2D)
+//가로 자리
+var h = 0
+var count = 0
+for i in 0...num-1 {
+    for j in 0...num-2 {
+        if arr2D[i][j] == "." && arr2D[i][j] == arr2D[i][j+1] && count == 0{
+            h += 1
+            count += 1
+            print(i)
+        } else {
+            count = 0
+        }
+    }
+}
+//세로 자리
+var v = 0
+for i in 0...num-2 {
+    for j in 0...num-1 {
+        if arr2D[j][i] == "." && arr2D[j][i] == arr2D[j][i+1] {
+            v += 1
+            break
+        }
+    }
+}
+
+print("\(h) \(v)")
+
 
 
 
