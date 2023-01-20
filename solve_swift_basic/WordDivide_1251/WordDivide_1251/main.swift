@@ -342,11 +342,14 @@ for i in 0...num-1 {
 var h = 0
 var count = 0
 for i in 0...num-1 {
+    count = 0
     for j in 0...num-2 {
-        if arr2D[i][j] == "." && arr2D[i][j] == arr2D[i][j+1] && count == 0{
-            h += 1
-            count += 1
-            print(i)
+        if arr2D[i][j] == "." && arr2D[i][j] == arr2D[i][j+1] {
+            if count == 0 {
+                h += 1
+                count += 1
+            }
+            //print("\(i) : \(h)  : \(count)")
         } else {
             count = 0
         }
@@ -354,11 +357,17 @@ for i in 0...num-1 {
 }
 //세로 자리
 var v = 0
-for i in 0...num-2 {
-    for j in 0...num-1 {
-        if arr2D[j][i] == "." && arr2D[j][i] == arr2D[j][i+1] {
-            v += 1
-            break
+for i in 0...num-1 {
+    count = 0
+    for j in 0...num-2 {
+        if arr2D[j][i] == "." && arr2D[j][i] == arr2D[j+1][i] {
+            if count == 0 {
+                v += 1
+                count += 1
+            }
+            //print("\(i) : \(v) ")
+        } else {
+            count = 0
         }
     }
 }
