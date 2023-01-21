@@ -327,6 +327,55 @@ import Foundation
 
 // 1652. 누울 자리를 찾아서
 
+// 1번 답안. 시간초과...
+//let num = Int(readLine()!)!
+//var arr2D : [[Character]] = Array(repeating: Array(repeating: ".",count:num ), count: num)
+//
+//for i in 0...num-1 {
+//    let arr = Array(readLine()!)
+//    for j in 0...num-1 {
+//        arr2D[i][j] = arr[j]
+//    }
+//}
+//
+////print(arr2D)
+////가로 자리
+//var h = 0
+//var count = 0
+//for i in 0...num-1 {
+//    count = 0
+//    for j in 0...num-2 {
+//        if arr2D[i][j] == "." && arr2D[i][j] == arr2D[i][j+1] {
+//            if count == 0 {
+//                h += 1
+//                count += 1
+//            }
+//            //print("\(i) : \(h)  : \(count)")
+//        } else {
+//            count = 0
+//        }
+//    }
+//}
+////세로 자리
+//var v = 0
+//for i in 0...num-1 {
+//    count = 0
+//    for j in 0...num-2 {
+//        if arr2D[j][i] == "." && arr2D[j][i] == arr2D[j+1][i] {
+//            if count == 0 {
+//                v += 1
+//                count += 1
+//            }
+//            //print("\(i) : \(v) ")
+//        } else {
+//            count = 0
+//        }
+//    }
+//}
+//
+//print("\(h) \(v)")
+
+// 2번 답안
 let num = Int(readLine()!)!
 var arr2D : [[Character]] = Array(repeating: Array(repeating: ".",count:num ), count: num)
 
@@ -337,44 +386,26 @@ for i in 0...num-1 {
     }
 }
 
-//print(arr2D)
-//가로 자리
-var h = 0
-var count = 0
-for i in 0...num-1 {
-    count = 0
-    for j in 0...num-2 {
-        if arr2D[i][j] == "." && arr2D[i][j] == arr2D[i][j+1] {
-            if count == 0 {
-                h += 1
-                count += 1
-            }
-            //print("\(i) : \(h)  : \(count)")
-        } else {
-            count = 0
+var column = 0
+var row = 0
+for i in 0..<num {
+    let splitRow = arr2D[i].split(separator: "X").map { $0.count }
+    let splitCol = arr2D.map({ $0[i] }).split(separator: "X").map { $0.count }
+ 
+    for r in splitRow {
+        if r >= 2 {
+            row += 1
         }
     }
-}
-//세로 자리
-var v = 0
-for i in 0...num-1 {
-    count = 0
-    for j in 0...num-2 {
-        if arr2D[j][i] == "." && arr2D[j][i] == arr2D[j+1][i] {
-            if count == 0 {
-                v += 1
-                count += 1
-            }
-            //print("\(i) : \(v) ")
-        } else {
-            count = 0
+    for c in splitCol {
+        if c >= 2 {
+            column += 1
         }
     }
+    //print("splitRow: \(splitRow)")
+    //print("splitCol: \(splitCol)")
 }
-
-print("\(h) \(v)")
-
-
+print(row, column)
 
 
 
