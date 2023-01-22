@@ -376,36 +376,50 @@ import Foundation
 //print("\(h) \(v)")
 
 // 2번 답안
-let num = Int(readLine()!)!
-var arr2D : [[Character]] = Array(repeating: Array(repeating: ".",count:num ), count: num)
+//let num = Int(readLine()!)!
+//var arr2D : [[Character]] = Array(repeating: Array(repeating: ".",count:num ), count: num)
+//
+//for i in 0...num-1 {
+//    let arr = Array(readLine()!)
+//    for j in 0...num-1 {
+//        arr2D[i][j] = arr[j]
+//    }
+//}
+//
+//var column = 0
+//var row = 0
+//for i in 0..<num {
+//    let splitRow = arr2D[i].split(separator: "X").map { $0.count }
+//    let splitCol = arr2D.map({ $0[i] }).split(separator: "X").map { $0.count }
+//
+//    for r in splitRow {
+//        if r >= 2 {
+//            row += 1
+//        }
+//    }
+//    for c in splitCol {
+//        if c >= 2 {
+//            column += 1
+//        }
+//    }
+//    //print("splitRow: \(splitRow)")
+//    //print("splitCol: \(splitCol)")
+//}
+//print(row, column)
 
-for i in 0...num-1 {
-    let arr = Array(readLine()!)
-    for j in 0...num-1 {
-        arr2D[i][j] = arr[j]
+// 1676. 팩토리얼
+let input = Int(readLine()!)!
+var count = 0
+
+for i in 1..<input+1 {
+    var num = i
+    while num > 0, num%5 == 0 {
+        count += 1
+        num /= 5
     }
 }
 
-var column = 0
-var row = 0
-for i in 0..<num {
-    let splitRow = arr2D[i].split(separator: "X").map { $0.count }
-    let splitCol = arr2D.map({ $0[i] }).split(separator: "X").map { $0.count }
- 
-    for r in splitRow {
-        if r >= 2 {
-            row += 1
-        }
-    }
-    for c in splitCol {
-        if c >= 2 {
-            column += 1
-        }
-    }
-    //print("splitRow: \(splitRow)")
-    //print("splitCol: \(splitCol)")
-}
-print(row, column)
+print(count)
 
 
 
