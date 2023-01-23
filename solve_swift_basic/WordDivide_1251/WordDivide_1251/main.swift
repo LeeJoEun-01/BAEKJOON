@@ -408,18 +408,41 @@ import Foundation
 //print(row, column)
 
 // 1676. 팩토리얼
-let input = Int(readLine()!)!
+//let input = Int(readLine()!)!
+//var count = 0
+//
+//for i in 1..<input+1 {
+//    var num = i
+//    while num > 0, num%5 == 0 {
+//        count += 1
+//        num /= 5
+//    }
+//}
+//
+//print(count)
+
+// 1769. 3의 배수
+let input = Array(readLine()!)
+var arr = input.map{ Int(String($0))! }
+
+var addNum = arr.reduce(0) {$0+$1}
 var count = 0
 
-for i in 1..<input+1 {
-    var num = i
-    while num > 0, num%5 == 0 {
-        count += 1
-        num /= 5
-    }
+while arr.count != 1 {
+    addNum = arr.reduce(0) {$0+$1}
+    arr = String(addNum).map{Int(String($0))!}
+    count += 1
+    //print(addNum, count)
 }
-
 print(count)
+
+var result = addNum%3 == 0 ? "YES" : "NO"
+
+print(result)
+
+
+
+
 
 
 
