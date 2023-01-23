@@ -128,3 +128,8 @@ let arr = String(num).map{Int(String($0))!}
 var result = arr.filter({ ($0) == 6 }).count
 
 ```
+>## if문 축약형
+```swift
+var msg = number >= 20 ? "higger" : "lesser"
+print (msg)
+```
