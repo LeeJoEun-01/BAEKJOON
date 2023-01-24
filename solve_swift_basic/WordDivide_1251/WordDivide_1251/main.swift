@@ -422,23 +422,34 @@ import Foundation
 //print(count)
 
 // 1769. 3의 배수
-let input = Array(readLine()!)
-var arr = input.map{ Int(String($0))! }
+//let input = Array(readLine()!)
+//var arr = input.map{ Int(String($0))! }
+//
+//var addNum = arr.reduce(0) {$0+$1}
+//var count = 0
+//
+//while arr.count != 1 {
+//    addNum = arr.reduce(0) {$0+$1}
+//    arr = String(addNum).map{Int(String($0))!}
+//    count += 1
+//    //print(addNum, count)
+//}
+//print(count)
+//
+//var result = addNum%3 == 0 ? "YES" : "NO"
+//
+//print(result)
 
-var addNum = arr.reduce(0) {$0+$1}
-var count = 0
-
-while arr.count != 1 {
-    addNum = arr.reduce(0) {$0+$1}
-    arr = String(addNum).map{Int(String($0))!}
-    count += 1
-    //print(addNum, count)
+// 1789. 수들의 합
+let input = Int(readLine()!)!
+var sum = 0
+var num = 0
+while sum <= input {
+    num += 1
+    sum = sum + num
+    //print(sum, num)
 }
-print(count)
-
-var result = addNum%3 == 0 ? "YES" : "NO"
-
-print(result)
+print(num-1)
 
 
 
