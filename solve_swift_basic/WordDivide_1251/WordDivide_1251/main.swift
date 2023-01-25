@@ -441,15 +441,44 @@ import Foundation
 //print(result)
 
 // 1789. 수들의 합
-let input = Int(readLine()!)!
-var sum = 0
-var num = 0
-while sum <= input {
-    num += 1
-    sum = sum + num
-    //print(sum, num)
+//let input = Int(readLine()!)!
+//var sum = 0
+//var num = 0
+//while sum <= input {
+//    num += 1
+//    sum = sum + num
+//    //print(sum, num)
+//}
+//print(num-1)
+
+// 1978. 소수 찾기
+let num = Int(readLine()!)!
+var arr = readLine()!.split(separator: " ").map { Int(String($0))! }
+var count = 0
+
+for i in 0...num-1 {
+    let target = arr[i]
+    var result = true
+    if target == 1 {
+        result = false
+    } else if target == 2{
+        result = true
+    } else {
+        //print("target: \(target)")
+        for j in 2...target {
+            if target != j && target%j == 0 {
+                //print("111")
+                result = false
+                break
+            }
+        }
+    }
+    if result == true {
+        count += 1
+    }
 }
-print(num-1)
+    
+print(count)
 
 
 
