@@ -1,11 +1,4 @@
 # Swift로 백준 단계별 문제풀기 
-
->## 자주 까먹는 것들...
-```swift
-// 배열 선언
-let arr : Array<Int> = []
-
-```
   
 >## 딕셔너리 (Dictionaty)
 ```swift
@@ -34,7 +27,7 @@ print(answerDic) // 조건에 맞는 딕셔너리만 출력  ["z": 1]
 ```
   
 >## 유용하고 간단한 함수들
-- 최대,최소: `max(), min()`
+- 최대,최소: `max(), min()`   =>  max(numA, numC, numG, numT) 여러 요소도 가능 !!
 - 배열 뒤집기: `reverse()`
 - 오름차순으로 정렬: `sort()` && 새로운 배열을 오름차순으로 정렬하여 return: `sorted()`
 - 소문자, 대문자: `lowercased(), uppercased()`
@@ -76,6 +69,18 @@ arr.capacity // 3 -> 요소 제고 후에도 capacity는 동일
 `capacity`는 새로운 스토리지를 할당 없이, Array에 얼만큼의 element를 담을 수 있는지를 나타내는 것이다.  
 따라서, 모든 Array는 콘텐츠를 저장하기 위해 특정 양의 메모리를 예약하기 때문에, 특정 element를 제거한다고해도 이 공간의 크기는 변하지 않는다.
 <!-- https://sujinnaljin.medium.com/swift-array-%EC%9D%98-capacity-9c3a99d2c31f -->
+
+>## 배열 다루기
+- 추가
+  - `arr.append(추가할 요소)`
+- 삽입
+  - `arr.insert(추가할 요소, at: 인덱스 위치)`
+- 삭제
+  - `arr.popLast()`  => arr 배열의 마지막 요소를 반환하고 원본 배열에서 삭제
+  - `arr.remove(at: 인덱스 위치)`
+  - `arr.removeLast()`
+  - `arr.removeAll()`
+  - `arr.removeFirst()`
 
 >## contains()
 - contains: 문자열이나 배열에 특정 문자가 속해있는지 문자열 포함여부를 Boolean값으로 리턴해주는 함수
@@ -133,3 +138,32 @@ var result = arr.filter({ ($0) == 6 }).count
 var msg = number >= 20 ? "higger" : "lesser"
 print (msg)
 ```
+
+>## 2차원 배열
+```swift
+var arr : [[Int]] = Array(repeating: Array(repeating: 1,count:5 ), count: 3)
+// arr -> [[1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1]]
+
+var arr2 = [[String]](repeating: Array(repeating: "iOS",count: 2 ), count: 4)
+// arr2 -> //[["iOS", "iOS"], ["iOS", "iOS"], ["iOS", "iOS"], ["iOS", "iOS"]]
+```
+  
+>## 같은 문자 찾기
+- 크기가 정해진
+```swift
+let target = ["T", "A", "G", "A", "A", "T"]
+
+let numA = target.filter { ($0) == "A" }.count
+```
+- 크기가 정해지지 X 빈 배열 선언
+```swift
+var my2Darr = Int[][]()
+```
+  
+>## 문자 배열 문자열로 바꾸기
+```swift
+let target = ["T", "A", "G", "A", "A", "T"]
+let answerStr = target.joined(separator: "-")
+print(answerStr). // "T-A-G-A-A-T"
+```
+
