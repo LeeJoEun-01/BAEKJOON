@@ -167,3 +167,16 @@ let answerStr = target.joined(separator: "-")
 print(answerStr). // "T-A-G-A-A-T"
 ```
 
+>## 줄바꿈없이 print()
+```swift
+print(1, 2, 3, 4, 5, separator: " / ") // Prints "1 / 2 / 3 / 4 / 5" 
+print(1, 2, 3, 4, 5, separator: " / ", terminator: "END") // Prints "1 / 2 / 3 / 4 / 5END" 
+
+for n in 1...5 {
+    print(n, terminator: "")
+}
+// Prints "12345" (줄바꿈 없음)
+
+print(terminator: "1") // Prints "1"
+```
+<!-- https://applecider2020.tistory.com/6 -->
