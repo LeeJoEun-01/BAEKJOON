@@ -59,25 +59,87 @@ import Foundation
 
 
 // MARK: 카드1_2161
+//let num = Int(readLine()!)!
+//var arr : Array<Int> = []
+//var count = 0
+//
+//for i in 1...num {
+//    arr.append(i)
+//}
+//
+////print(arr)
+//
+//for _ in 0..<num-1 {
+//    print(arr[0], terminator: " ")
+//    arr.removeFirst()
+//    let target = arr[0]
+//    arr.removeFirst()
+//    arr.append(target)
+//
+//    //print("arr: \(arr)")
+//}
+//print(arr[0], terminator: " ")
+
+// MARK: 동적 프로그래밍
+
+// MARK: 설탕배달_2839
+//let input = readLine()!
+//var numN = Int(input)!
+//
+//var num5 = 0
+//var num3 = 0
+//
+//// numN에서 3을 계속 뺄 때 5의 배수가 되면 stop
+//// 5의 배수가 되지 않고 남으면 -1 출력
+//while true {
+//    if numN%5 == 0 {
+//        num5 = numN/5
+//        break
+//    } else if numN<0{
+//        num5 = 0
+//        num3 = -1
+//        break
+//    } else {
+//        numN = numN - 3
+//        num3 += 1
+//    }
+//}
+//
+//print(num3+num5)
+
+
+// MARK: 1로 만들기_1463
+//var numX = Int(readLine()!)!
+//var dp = [Int](repeating: 0, count: numX+1)
+//
+//for i in 2..<numX+1 {
+//    dp[i] = dp[i-1] + 1
+//    if i%3 == 0 {
+//        dp[i] = min(dp[i], dp[i/3]+1)
+//    }
+//    if i%2 == 0 {
+//        dp[i] = min(dp[i], dp[i/2]+1)
+//    }
+//}
+//
+//print(dp[numX])
+
+// MARK: 1,2,3 더하기_9095
 let num = Int(readLine()!)!
-var arr : Array<Int> = []
-var count = 0
 
-for i in 1...num {
-    arr.append(i)
+var dp = [Int](repeating: 0, count: 12)
+
+dp[1] = 1
+dp[2] = 2
+dp[3] = 4
+
+for j in 4..<12 {
+    dp[j] = dp[j-1] + dp[j-2] + dp[j-3]
 }
 
-//print(arr)
-
-for _ in 0..<num-1 {
-    print(arr[0], terminator: " ")
-    arr.removeFirst()
-    let target = arr[0]
-    arr.removeFirst()
-    arr.append(target)
-    
-    //print("arr: \(arr)")
+for _ in 0..<num {
+    let n = Int(readLine()!)!
+    print(dp[n])
 }
 
-print(arr[0], terminator: " ")
-
+// 맨 처음에 런타임 에러 나왔는데 출력 형식이 틀려서 그런거였다.
