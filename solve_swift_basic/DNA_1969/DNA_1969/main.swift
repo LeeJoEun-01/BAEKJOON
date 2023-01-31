@@ -125,21 +125,39 @@ import Foundation
 //print(dp[numX])
 
 // MARK: 1,2,3 더하기_9095
-let num = Int(readLine()!)!
-
-var dp = [Int](repeating: 0, count: 12)
-
-dp[1] = 1
-dp[2] = 2
-dp[3] = 4
-
-for j in 4..<12 {
-    dp[j] = dp[j-1] + dp[j-2] + dp[j-3]
-}
-
-for _ in 0..<num {
-    let n = Int(readLine()!)!
-    print(dp[n])
-}
+//let num = Int(readLine()!)!
+//
+//var dp = [Int](repeating: 0, count: 12)
+//
+//dp[1] = 1
+//dp[2] = 2
+//dp[3] = 4
+//
+//for j in 4..<12 {
+//    dp[j] = dp[j-1] + dp[j-2] + dp[j-3]
+//}
+//
+//for _ in 0..<num {
+//    let n = Int(readLine()!)!
+//    print(dp[n])
+//}
 
 // 맨 처음에 런타임 에러 나왔는데 출력 형식이 틀려서 그런거였다.
+
+// MARK: 피보나치 함수_1003
+let numCase = Int(readLine()!)!
+var arr2D : [[Int]] = Array(repeating: Array(repeating: 0,count:2 ), count: 41)
+
+arr2D[0] = [1,0]
+arr2D[1] = [0,1]
+arr2D[2] = [1,1]
+
+for i in 3..<41 {
+    arr2D[i][0] = arr2D[i-1][0] + arr2D[i-2][0]
+    arr2D[i][1] = arr2D[i-1][1] + arr2D[i-2][1]
+}
+
+for _ in 0..<numCase {
+    let target = Int(readLine()!)!
+    print(arr2D[target][0], arr2D[target][1])
+}
