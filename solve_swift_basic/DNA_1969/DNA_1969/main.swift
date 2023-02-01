@@ -163,20 +163,45 @@ import Foundation
 //}
 
 // MARK: 부녀회장이 될테야_2775
-let numCase = Int(readLine()!)!
+//let numCase = Int(readLine()!)!
+//
+//for _ in 0..<numCase {
+//    let floor = Int(readLine()!)!
+//    let num = Int(readLine()!)!
+//
+//    var arr2D : [[Int]] = Array(repeating: Array(repeating: 0,count:15 ), count: floor+1)
+//    arr2D[0] = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+//
+//    for i in 1..<floor+1 { //층수
+//        for j in 1..<15 { //호수
+//            arr2D[i][j] = arr2D[i][j-1] + arr2D[i-1][j]
+//        }
+//    }
+//
+//    print(arr2D[floor][num])
+//}
 
-for _ in 0..<numCase {
-    let floor = Int(readLine()!)!
-    let num = Int(readLine()!)!
+// MARK: 자료구조
+
+// MARK: 괄호_9012
+let num = Int(readLine()!)!
+
+for _ in 0..<num {
+    let arr = Array(readLine()!)
+    var arr2 : Array<String> = []
     
-    var arr2D : [[Int]] = Array(repeating: Array(repeating: 0,count:15 ), count: floor+1)
-    arr2D[0] = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
-
-    for i in 1..<floor+1 { //층수
-        for j in 1..<15 { //호수
-            arr2D[i][j] = arr2D[i][j-1] + arr2D[i-1][j]
+    for i in 0..<arr.count {
+        if arr[i] == "(" {
+            arr2.append("(")
+        } else {
+            if arr2.count == 0 {
+                arr2.append(")")
+                break
+            }
+            arr2.removeLast()
         }
     }
     
-    print(arr2D[floor][num])
+    let result = arr2.count == 0 ? "YES" : "NO"
+    print(result)
 }
