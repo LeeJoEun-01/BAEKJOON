@@ -184,24 +184,58 @@ import Foundation
 // MARK: 자료구조
 
 // MARK: 괄호_9012
+//let num = Int(readLine()!)!
+//
+//for _ in 0..<num {
+//    let arr = Array(readLine()!)
+//    var arr2 : Array<String> = []
+//
+//    for i in 0..<arr.count {
+//        if arr[i] == "(" {
+//            arr2.append("(")
+//        } else {
+//            if arr2.count == 0 {
+//                arr2.append(")")
+//                break
+//            }
+//            arr2.removeLast()
+//        }
+//    }
+//
+//    let result = arr2.count == 0 ? "YES" : "NO"
+//    print(result)
+//}
+
+// MARK: 스택_10828
 let num = Int(readLine()!)!
 
+var arr : Array<Int> = []
 for _ in 0..<num {
-    let arr = Array(readLine()!)
-    var arr2 : Array<String> = []
+    let str = readLine()!
     
-    for i in 0..<arr.count {
-        if arr[i] == "(" {
-            arr2.append("(")
+    if str.contains("push") {
+        var n = str.components(separatedBy: " ")
+        var n2 : Int = Int(n.popLast()!)!
+        arr.append(n2)
+    } else if str.contains("pop") {
+        if arr.count == 0 {
+            print(-1)
         } else {
-            if arr2.count == 0 {
-                arr2.append(")")
-                break
-            }
-            arr2.removeLast()
+            print(arr.popLast()!)
+        }
+    } else if str.contains("size") {
+        print(arr.count)
+    } else if str.contains("empty") {
+        if arr.count == 0 {
+            print(1)
+        } else {
+            print(0)
+        }
+    } else if str.contains("top") {
+        if arr.count == 0 {
+            print(-1)
+        } else {
+            print(arr.last!)
         }
     }
-    
-    let result = arr2.count == 0 ? "YES" : "NO"
-    print(result)
 }
