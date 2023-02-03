@@ -207,35 +207,51 @@ import Foundation
 //}
 
 // MARK: 스택_10828
-let num = Int(readLine()!)!
+//let num = Int(readLine()!)!
+//
+//var arr : Array<Int> = []
+//for _ in 0..<num {
+//    let str = readLine()!
+//
+//    if str.contains("push") {
+//        var n = str.components(separatedBy: " ")
+//        var n2 : Int = Int(n.popLast()!)!
+//        arr.append(n2)
+//    } else if str.contains("pop") {
+//        if arr.count == 0 {
+//            print(-1)
+//        } else {
+//            print(arr.popLast()!)
+//        }
+//    } else if str.contains("size") {
+//        print(arr.count)
+//    } else if str.contains("empty") {
+//        if arr.count == 0 {
+//            print(1)
+//        } else {
+//            print(0)
+//        }
+//    } else if str.contains("top") {
+//        if arr.count == 0 {
+//            print(-1)
+//        } else {
+//            print(arr.last!)
+//        }
+//    }
+//}
 
+// MARK: 제로_10773
+let num = Int(readLine()!)!
 var arr : Array<Int> = []
+
 for _ in 0..<num {
-    let str = readLine()!
-    
-    if str.contains("push") {
-        var n = str.components(separatedBy: " ")
-        var n2 : Int = Int(n.popLast()!)!
-        arr.append(n2)
-    } else if str.contains("pop") {
-        if arr.count == 0 {
-            print(-1)
-        } else {
-            print(arr.popLast()!)
-        }
-    } else if str.contains("size") {
-        print(arr.count)
-    } else if str.contains("empty") {
-        if arr.count == 0 {
-            print(1)
-        } else {
-            print(0)
-        }
-    } else if str.contains("top") {
-        if arr.count == 0 {
-            print(-1)
-        } else {
-            print(arr.last!)
-        }
+    let target = Int(readLine()!)!
+    if target != 0 {
+        arr.append(target)
+    } else {
+        arr.removeLast()
     }
 }
+
+let sum = arr.reduce(0) {$0+$1}
+print(sum)
