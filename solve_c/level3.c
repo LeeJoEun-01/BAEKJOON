@@ -193,23 +193,26 @@
 int main(void)
 {
   int num;
-  int count, result, n = 0;
+  int count = 0;
+  int result, n = 0;
   scanf("%d", &num);
   result = num;
 
   while (1)
   {
+    // printf("%d\n", n);
     int a, b = 0;
     a = num % 10;
     b = num / 10 + num % 10;
     n = a * 10 + b % 10;
     num = n;
     count++;
+    // printf("%d %d\n", num, count);
 
-    if (result == n)
+    if (result == num)
     {
       break;
     }
   }
-  printf("%d\n", count - 1);
+  printf("%d\n", count);
 }
