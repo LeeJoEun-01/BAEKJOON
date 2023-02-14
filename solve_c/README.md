@@ -55,6 +55,63 @@ int main(void)
 
 # 4.제어의 흐름
 
-# 5.함수
+# 5.조건문
 
-# 6.배열
+```c
+#include <stdio.h>
+int main(void)
+{
+  int dice1;
+  int dice2;
+  int dice3;
+  scanf("%d %d %d", &dice1, &dice2, &dice3);
+
+  if (dice1 == dice2 && dice2 == dice3)
+  {
+    // 문장문장;
+  }
+  else if (dice1 == dice3)
+  {
+    // 문장문장;
+  }
+  else
+  {
+    // 문장문장;
+  }
+  return 0;
+}
+```
+  
+# 6.반복문
+- for문
+```c
+for (int i = 1; i < 10; i++)
+{
+  // 문장문장;
+}
+```
+
+- while문
+```c
+while (result != num)
+{
+  // 문장문장;
+}
+```
+
+- while 무한루프
+```c
+while (1)
+{
+  if (result == num)
+  {
+    break;
+  }
+}
+```
+
+> ## End Of File (EOF)
+- End of File의 약어로, "파일의 끝을 표현한 상수로 -1 값을 지칭" 
+- 즉, 파일을 대상으로 fgetc (읽기함수)가 호출되었을 때 그 파일의 끝에 도달하면 EOF (= -1)이 반환되어 끝을 알린다.
+- window: (Ctrl+Z) / Linux: (Ctrl+D)
+
