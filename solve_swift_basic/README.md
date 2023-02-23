@@ -180,3 +180,34 @@ for n in 1...5 {
 print(terminator: "1") // Prints "1"
 ```
 <!-- https://applecider2020.tistory.com/6 -->
+
+>## 함수 만들기
+
+1. 함수의 매개변수 이름 설정
+```swift
+func myFunction(name : String) -> String {
+    return "안녕하세요? \(name)입니다."
+}
+myFunction(name: "조은")    //안녕하세요? 조은입니다.
+
+```
+  
+2. 전달 인자 레이블
+```swift
+func myFunction(with name : String) -> String {
+    return "안녕하세요? \(name)입니다."
+}
+myFunctionSecond(with: "Joeun")    //안녕하세요? Joeun입니다.
+
+```
+  
+3. 전달 인자 레이블 사용 X   
+=> `와일드 카드 식별자(_) 사용`
+```swift
+func myFunction(name : String) -> String {
+    return "안녕하세요? \(name)입니다."
+}
+myFunctionThird("Joni")    //안녕하세요? Joni입니다.
+```
+
+
