@@ -241,17 +241,40 @@ import Foundation
 //}
 
 // MARK: 제로_10773
-let num = Int(readLine()!)!
-var arr : Array<Int> = []
+//let num = Int(readLine()!)!
+//var arr : Array<Int> = []
+//
+//for _ in 0..<num {
+//    let target = Int(readLine()!)!
+//    if target != 0 {
+//        arr.append(target)
+//    } else {
+//        arr.removeLast()
+//    }
+//}
+//
+//let sum = arr.reduce(0) {$0+$1}
+//print(sum)
 
-for _ in 0..<num {
-    let target = Int(readLine()!)!
-    if target != 0 {
-        arr.append(target)
-    } else {
-        arr.removeLast()
+// MARK: 수 찾기_1920
+let num1 = Int(readLine()!)!
+var arr1 = readLine()!.split(separator: " ").map { Int(String($0))! }
+let num2 = Int(readLine()!)!
+var arr2 = readLine()!.split(separator: " ").map { Int(String($0))! }
+
+arr1.sort()
+
+for i in 0..<num2 {
+    let target = arr2[i]
+    for j in 0..<num1 {
+        if target == arr1[j] {
+            print(1)
+            break
+        } else {
+            if j == num1-1 || target < arr1[j] {
+                print(0)
+                break
+            }
+        }
     }
 }
-
-let sum = arr.reduce(0) {$0+$1}
-print(sum)
