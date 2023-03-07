@@ -258,29 +258,71 @@ import Foundation
 
 // MARK: 수 찾기_1920
 // 브루트 포스(brute force0 = 완전탐색 알고리즘을 사용하면 시간초과가 뜬다.
-let num1 = Int(readLine()!)!
-var arr1 = readLine()!.split(separator: " ").map { Int(String($0))! }
-arr1.sort()
-let num2 = Int(readLine()!)!
-let arr2 = readLine()!.split(separator: " ").map { Int(String($0))! }
+//let num1 = Int(readLine()!)!
+//var arr1 = readLine()!.split(separator: " ").map { Int(String($0))! }
+//arr1.sort()
+//let num2 = Int(readLine()!)!
+//let arr2 = readLine()!.split(separator: " ").map { Int(String($0))! }
+//
+//func binarySearch(_ arr: [Int], _ target: Int) -> Int {
+//    var start = 0
+//    var end = arr.count-1
+//
+//    while start <= end {
+//        let mid: Int = (start+end)/2
+//        if arr[mid] == target {
+//            return 1
+//        } else if arr[mid] > target {
+//            end = mid - 1
+//        } else if arr[mid] < target {
+//            start = mid + 1
+//        }
+//    }
+//    return 0
+//}
+//
+//for i in 0..<num2 {
+//    print(binarySearch(arr1, arr2[i]))
+//}
 
-func binarySearch(_ arr: [Int], _ target: Int) -> Int {
-    var start = 0
-    var end = arr.count-1
-    
-    while start <= end {
-        let mid: Int = (start+end)/2
-        if arr[mid] == target {
-            return 1
-        } else if arr[mid] > target {
-            end = mid - 1
-        } else if arr[mid] < target {
-            start = mid + 1
+
+
+// MARK: 큐_10845
+let num = Int(readLine()!)!
+
+var arr : Array<Int> = []
+for _ in 0..<num {
+    let str = readLine()!
+
+    if str.contains("push") {
+        var n = str.components(separatedBy: " ")
+        var n2 : Int = Int(n.popLast()!)!
+        arr.append(n2)
+    } else if str.contains("pop") {
+        if arr.count == 0 {
+            print(-1)
+        } else {
+            print(arr.removeFirst())
+        }
+    } else if str.contains("size") {
+        print(arr.count)
+    } else if str.contains("empty") {
+        if arr.count == 0 {
+            print(1)
+        } else {
+            print(0)
+        }
+    } else if str.contains("front") {
+        if arr.count == 0 {
+            print(-1)
+        } else {
+            print(arr[0])
+        }
+    } else if str.contains("back") {
+        if arr.count == 0 {
+            print(-1)
+        } else {
+            print(arr.last!)
         }
     }
-    return 0
-}
-
-for i in 0..<num2 {
-    print(binarySearch(arr1, arr2[i]))
 }
