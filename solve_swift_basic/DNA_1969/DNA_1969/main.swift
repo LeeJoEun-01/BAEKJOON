@@ -288,41 +288,66 @@ import Foundation
 
 
 // MARK: 큐_10845
+//let num = Int(readLine()!)!
+//
+//var arr : Array<Int> = []
+//for _ in 0..<num {
+//    let str = readLine()!
+//
+//    if str.contains("push") {
+//        var n = str.components(separatedBy: " ")
+//        var n2 : Int = Int(n.popLast()!)!
+//        arr.append(n2)
+//    } else if str.contains("pop") {
+//        if arr.count == 0 {
+//            print(-1)
+//        } else {
+//            print(arr.removeFirst())
+//        }
+//    } else if str.contains("size") {
+//        print(arr.count)
+//    } else if str.contains("empty") {
+//        if arr.count == 0 {
+//            print(1)
+//        } else {
+//            print(0)
+//        }
+//    } else if str.contains("front") {
+//        if arr.count == 0 {
+//            print(-1)
+//        } else {
+//            print(arr[0])
+//        }
+//    } else if str.contains("back") {
+//        if arr.count == 0 {
+//            print(-1)
+//        } else {
+//            print(arr.last!)
+//        }
+//    }
+//}
+
+
+// MARK: 카드2_2164
 let num = Int(readLine()!)!
-
 var arr : Array<Int> = []
-for _ in 0..<num {
-    let str = readLine()!
 
-    if str.contains("push") {
-        var n = str.components(separatedBy: " ")
-        var n2 : Int = Int(n.popLast()!)!
-        arr.append(n2)
-    } else if str.contains("pop") {
-        if arr.count == 0 {
-            print(-1)
-        } else {
-            print(arr.removeFirst())
-        }
-    } else if str.contains("size") {
-        print(arr.count)
-    } else if str.contains("empty") {
-        if arr.count == 0 {
-            print(1)
-        } else {
-            print(0)
-        }
-    } else if str.contains("front") {
-        if arr.count == 0 {
-            print(-1)
-        } else {
-            print(arr[0])
-        }
-    } else if str.contains("back") {
-        if arr.count == 0 {
-            print(-1)
-        } else {
-            print(arr.last!)
-        }
-    }
+for i in 0..<num {
+    //let n = num-i
+    arr.append(i+1)
 }
+
+var i = 0
+var result = 0
+while true {
+    //arr.remove(at:0)
+    if (arr.last == arr[i]) {
+        result = arr.last ?? 0
+        break
+    }
+    let target = arr[i+1]
+    arr.append(target)
+    i = i+2
+}
+print(result)
+
