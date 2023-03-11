@@ -329,25 +329,69 @@ import Foundation
 
 
 // MARK: 카드2_2164
+//let num = Int(readLine()!)!
+//var arr : Array<Int> = []
+//
+//for i in 0..<num {
+//    //let n = num-i
+//    arr.append(i+1)
+//}
+//
+//var i = 0
+//var result = 0
+//while true {
+//    //arr.remove(at:0)
+//    if (arr.last == arr[i]) {
+//        result = arr.last ?? 0
+//        break
+//    }
+//    let target = arr[i+1]
+//    arr.append(target)
+//    i = i+2
+//}
+//print(result)
+
+// MARK: 스택 수열_1874
 let num = Int(readLine()!)!
 var arr : Array<Int> = []
 
-for i in 0..<num {
-    //let n = num-i
-    arr.append(i+1)
+for _ in 0..<num {
+    let n = Int(readLine()!)!
+    arr.append(n)
 }
+//print(arr)
 
-var i = 0
-var result = 0
-while true {
-    //arr.remove(at:0)
-    if (arr.last == arr[i]) {
-        result = arr.last ?? 0
-        break
+var ind = 0
+var arrow = arr[ind]
+var stackArr : Array<Int> = []
+var resultArr : Array<String> = []
+
+for i in 1..<num+1 {
+    let n = i
+    // stack에 push하기
+    resultArr.append("+")
+    stackArr.append(n)
+    
+    // 처음에 입력받은 수열을 가리키는 arrow
+    while stackArr.last == arrow {
+        stackArr.removeLast()
+        resultArr.append("-")
+        ind += 1
+        if ind == num-1 {
+            resultArr.append("-")
+            stackArr.removeLast()
+            break
+        }
+        arrow = arr[ind]
     }
-    let target = arr[i+1]
-    arr.append(target)
-    i = i+2
 }
-print(result)
 
+//print("stackArr: \(stackArr)")
+
+if stackArr.count == 0 {
+    for i in 0..<resultArr.count {
+        print(resultArr[i])
+    }
+} else {
+    print("NO")
+}
